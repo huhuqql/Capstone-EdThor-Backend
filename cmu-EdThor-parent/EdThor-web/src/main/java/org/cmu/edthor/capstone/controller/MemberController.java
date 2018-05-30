@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/m")
+@RequestMapping("/ws")
 public class MemberController {
 
 	@Autowired
 	private MemberRepository memberRepository;
 
-	@RequestMapping(path = "members", method = RequestMethod.POST)
+	@RequestMapping(path = "/members", method = RequestMethod.POST)
 	public void addMember(@RequestBody Member m) {
 		this.memberRepository.save(m);
 	}
