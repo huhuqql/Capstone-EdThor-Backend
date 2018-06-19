@@ -22,6 +22,9 @@ public class MemberController {
 
 	@RequestMapping(path = "/members", method = RequestMethod.POST)
 	public void addMember(@RequestBody Member m) {
+		if (m.getId() ==null) {
+			m.setId(new ObjectId().toString());
+		}
 		this.memberRepository.save(m);
 	}
 

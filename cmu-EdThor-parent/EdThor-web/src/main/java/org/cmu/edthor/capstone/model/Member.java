@@ -9,16 +9,17 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Member {
 
 	@Id
-	private ObjectId id;
+	private String id;
 	@Version
 	private Integer version;
 	private String name;
 
-	public ObjectId getId() {
+
+	public String getId() {
 		return id;
 	}
 
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
