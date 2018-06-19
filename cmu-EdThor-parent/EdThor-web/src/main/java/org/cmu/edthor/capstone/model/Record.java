@@ -1,6 +1,7 @@
 package org.cmu.edthor.capstone.model;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
@@ -60,7 +61,7 @@ public class Record {
 		return problem_duration;
 	}
 
-	public void setProblemDuration(Integer problem_duration) {
+	public void setProblemDuration(long problem_duration) {
 		this.problem_duration = problem_duration;
 	}
 
@@ -68,7 +69,7 @@ public class Record {
 		return problem_answer;
 	}
 
-	public void setProblemAnswer(Integer problem_answer) {
+	public void setProblemAnswer(boolean[] problem_answer) {
 		this.problem_answer = problem_answer;
 	}
 
