@@ -21,7 +21,7 @@ public class RecordController {
 	public void addRecord(@RequestBody Record r) {
 		this.recordRepository.save(r);
 	}
-
+	
 	@RequestMapping(path = "/records", method = RequestMethod.GET)
 	public List<Record> getAllRecords() {
 		return this.recordRepository.findAll();

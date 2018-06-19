@@ -10,12 +10,12 @@ public class Record {
 	@Id
 	private ObjectId id;
 
-	private Integer student_id;
-	private Integer problem_id;
-	private Integer problem_num;
-	private Integer problem_type;
-	private long problem_duration;
-	private boolean[] problem_answer;
+	private Integer studentId;
+	private Integer problemId;
+	private Integer problemNum;
+	private Integer problemType;
+	private long problemDuration;
+	private boolean[] problemAnswer;
 
 	public ObjectId getId() {
 		return id;
@@ -26,53 +26,51 @@ public class Record {
 	}
 
 	public Integer getStudentId() {
-		return student_id;
+		return studentId;
 	}
 
-	public void setStudentId(Integer student_id) {
-		this.student_id = student_id;
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
 	}
 
 	public Integer getProblemId() {
-		return problem_id;
+		return problemId;
 	}
 
-	public void setProblemId(Integer problem_id) {
-		this.problem_id = problem_id;
+	public void setProblemId(Integer problemId) {
+		this.problemId = problemId;
 	}
 
 	public Integer getProblemNum() {
-		return problem_num;
+		return problemNum;
 	}
 
-	public void setProblemNum(Integer problem_num) {
-		this.problem_num = problem_num;
+	public void setProblemNum(Integer problemNum) {
+		this.problemNum = problemNum;
 	}
 
 	public Integer getProblemType() {
-		return problem_type;
+		return problemType;
 	}
 
-	public void setProblemType(Integer problem_type) {
-		this.problem_type = problem_type;
+	public void setProblemType(Integer problemType) {
+		this.problemType = problemType;
 	}
 
 	public long getProblemDuration() {
-		return problem_duration;
+		return problemDuration;
 	}
 
-	public void setProblemDuration(long problem_duration) {
-		this.problem_duration = problem_duration;
+	public void setProblemDuration(long problemDuration) {
+		this.problemDuration = problemDuration;
 	}
 
 	public boolean[] getProblemAnswer() {
-		return problem_answer;
+		return problemAnswer;
 	}
 
-	public void setProblemAnswer(boolean[] problem_answer) {
-		this.problem_answer = problem_answer;
+	public void setProblemAnswer(boolean[] problemAnswer) {
+		this.problemAnswer = problemAnswer;
 	}
-
-
 
 }
