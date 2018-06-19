@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface RecordRepository extends MongoRepository<Record, ObjectId> {
 	
-	public Record findByName();
+	public Record findByStudentId(int studentId);
 }
