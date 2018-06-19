@@ -30,7 +30,7 @@ public class MemberController {
 		return this.memberRepository.findAll();
 	}
 
-	@RequestMapping(path = "/members", method = RequestMethod.GET)
+	@RequestMapping(path = "/members/", method = RequestMethod.GET)
 	public Member findByName(@RequestParam String name){
 		return this.memberRepository.findByName(name);
 	}
