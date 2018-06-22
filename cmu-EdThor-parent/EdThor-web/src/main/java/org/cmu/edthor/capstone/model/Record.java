@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Record {
 
 	@Id
-	private ObjectId id;
+	private String id;
 
 	private Integer studentId;
 	private Integer problemId;
@@ -17,11 +17,11 @@ public class Record {
 	private long problemDuration;
 	private boolean[] problemAnswer;
 
-	public ObjectId getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
