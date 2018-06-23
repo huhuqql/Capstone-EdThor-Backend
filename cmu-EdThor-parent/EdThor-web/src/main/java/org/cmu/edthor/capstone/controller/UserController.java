@@ -21,19 +21,18 @@ public class UserController {
 	private UserRepository userRepository;
 
 	@RequestMapping(path = "/users/register", method = RequestMethod.POST)
-	public String addUser(@RequestBody User u) {
+	public Integer addUser(@RequestBody User u) {
 		User temp_user = this.userRepository.findByUsername(u.getUsername());
 		if(temp_user != null) {
-			return "fail";
+			return -1;
 		}
 		else {
 			if (u.getId() ==null) {
 				u.setId(new ObjectId().toString());
 			}
 			this.userRepository.save(u);
-			return "success";
+			return 1;
 		}
-		
 	}
 
 	@RequestMapping(path = "/users", method = RequestMethod.GET)
@@ -42,15 +41,15 @@ public class UserController {
 	}
 
 	@RequestMapping(path = "/users/", method = RequestMethod.GET)
-	public String findByUsername(@RequestParam String username, String password){
+	public Integer findByUsername(@RequestParam String username, String password){
 		User u = new User();
 		u = this.userRepository.findByUsername(username);
 		String temp_password = u.getPassword();
 		if(temp_password == password) {
-			return "success";
+			return 1;
 		}
 		else {
-			return "fail";
+			return -1;
 		}
 	}
 	
