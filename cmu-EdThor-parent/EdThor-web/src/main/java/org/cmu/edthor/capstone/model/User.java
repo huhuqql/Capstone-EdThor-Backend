@@ -11,7 +11,7 @@ public class User {
 	private String id;
 
 	private String username;
-	private Integer password;
+	private String password;
 	private String pseudoname;
 	private Integer studentId;
 
@@ -40,11 +40,11 @@ public class User {
 		this.pseudoname = pseudoname;
 	}
 
-    public Integer setPassword() {
+    public String getPassword() {
 		return password;
 	}
 
-	public void setPseudoname(Integer password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
