@@ -30,6 +30,8 @@ public class UserController {
 			if (u.getId() ==null) {
 				u.setId(new ObjectId().toString());
 			}
+			int numUsers = this.userRepository.findAll().size();
+			u.setStudentId(numUsers + 1);
 			this.userRepository.save(u);
 			return 1;
 		}
@@ -40,13 +42,15 @@ public class UserController {
 		return this.userRepository.findAll();
 	}
 
-	@RequestMapping(path = "/users/", method = RequestMethod.GET)
-	public Integer findByUsername(@RequestParam String username, String password){
-		User u = new User();
-		u = this.userRepository.findByUsername(username);
-		String temp_password = u.getPassword();
-		if(temp_password == password) {
-			return 1;
+	@RequestMapping(path = "/users/login", method = RequestMethod.POST)
+	public Integer findByUsername(@RequestBody User u){
+		User temp_u = this.userRepository.findByUsername(u.getUsername());
+		if(temp_u == null) {
+			return -1;
+		}
+		String temp_password = temp_u.getPassword();
+		if(temp_password.equals(u.getPassword())) {
+			return temp_u.getStudentId();
 		}
 		else {
 			return -1;
