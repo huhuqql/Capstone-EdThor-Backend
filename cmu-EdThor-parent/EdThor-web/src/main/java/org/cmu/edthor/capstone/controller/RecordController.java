@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 @RequestMapping("/ws")
@@ -25,5 +27,10 @@ public class RecordController {
 	@RequestMapping(path = "/records", method = RequestMethod.GET)
 	public List<Record> getAllRecords() {
 		return this.recordRepository.findAll();
+	}
+
+	@RequestMapping(path = "/records/", method = RequestMethod.GET)
+	public List<Record> findByStudentId(@RequestParam Integer studentId){
+		return this.recordRepository.findByStudentId(studentId);
 	}
 }
