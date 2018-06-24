@@ -2,6 +2,7 @@ package org.cmu.edthor.capstone.controller;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.cmu.edthor.capstone.model.Record;
 import org.cmu.edthor.capstone.repository.RecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class RecordController {
 
 	@RequestMapping(path = "/records", method = RequestMethod.POST)
 	public void addRecord(@RequestBody Record r) {
+		if (r.getId() == null) {
+			r.setId(new ObjectId().toString());
+		}
 		this.recordRepository.save(r);
 	}
 	
