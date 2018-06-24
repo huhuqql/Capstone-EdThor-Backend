@@ -15,7 +15,7 @@ public class Record {
 	private Integer problemNum;
 	private Integer problemType;
 	private long problemDuration;
-	private Integer problemKc;
+	private Integer[] problemKc;
 	private boolean[] problemResult;
 	private boolean[][] problemLongquestionAnswer;
 
@@ -83,7 +83,7 @@ public class Record {
 		this.problemLongquestionAnswer = problemLongquestionAnswer;
 	}
 
-	public Integer getProblemKc(){
+	public Integer[] getProblemKc(){
 		return problemKc;
 	}
 
