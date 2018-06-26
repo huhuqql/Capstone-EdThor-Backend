@@ -33,38 +33,42 @@ public class RecordController {
 		
 		ArrayList<ArrayList<Double>> finalList = new ArrayList<ArrayList<Double>>();
 		List<Record> tempRecords;
-		Integer[] tempKc;
+		Integer[] tempKc = {1,2,3,4,5,6,7};
 		tempRecords = findByStudentId(r.getStudentId());
-		tempKc = r.getProblemKc();
 		for(int i = 0; i < tempKc.length; i++) {
-			List<Record> kcRecord = new ArrayList<Record>();
+			BKT bkt  = new BKT();
+			ArrayList<Integer> o = new ArrayList<Integer>();
 			for(int j = 0; j < tempRecords.size();j++) {
 				Record tempR = tempRecords.get(j);
-				if(tempKc[i] == tempR.getProblemKc()[i]){
-					kcRecord.add(tempR);
+				if(tempR.getProblemType() == 2 || tempR.getProblemType() == 3) {
+					if(tempR.getProblemKc()[0] == tempKc[i]) {
+						if(tempR.getProblemResult()[0] == true) {
+							o.add(1);
+						}
+						else {
+							o.add(0);
+						}
+					}
+				}
+				else {
+					for(int k = 0; k < tempR.getProblemKc().length;k++) {
+						if(tempR.getProblemKc()[k] == tempKc[i]) {
+							if(tempR.getProblemLongquestionAnswer()[k] == true) {
+								o.add(1);
+							}
+							else {
+								o.add(0);
+							}
+						}	
+					}
 				}
 			}
-			int[] o = new int [kcRecord.size()];
-			for(int j = 0; j < kcRecord.size();j++) {
-				Record tempR = kcRecord.get(j);
-				if(tempR.getProblemType() == 1){
-					if(tempR.getProblemResult()[i] == false){
-						o[j] = 0;
-					}
-					else{
-						o[j] = 1;
-					}
-				}
-				else{
-					if(tempR.getProblemResult()[0] == false){
-						o[j] = 0;
-					}
-					else{
-						o[j] = 1;
-					}
-				}
+
+			int[] oArray = new int[o.size()];
+			for(int j = 0; j < oArray.length; j++) {
+				oArray[j] = o.get(j);
 			}
-			ArrayList<Double> L = bkt.computePKnown(o);
+			ArrayList<Double> L = bkt.computePKnown(oArray);
 			finalList.add(L);
 		}
 		return finalList;

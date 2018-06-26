@@ -17,7 +17,7 @@ public class Record {
 	private long problemDuration;
 	private Integer[] problemKc;
 	private boolean[] problemResult;
-	private boolean[][] problemLongquestionAnswer;
+	private boolean[] problemLongquestionAnswer;
 
 	public String getId() {
 		return id;
@@ -75,11 +75,11 @@ public class Record {
 		this.problemResult = problemResult;
 	}
 
-	public boolean[][] getProblemLongquestionAnswer() {
+	public boolean[] getProblemLongquestionAnswer() {
 		return problemLongquestionAnswer;
 	}
 
-	public void setProblemLongquestionAnswer(boolean[][] problemLongquestionAnswer) {
+	public void setProblemLongquestionAnswer(boolean[] problemLongquestionAnswer) {
 		this.problemLongquestionAnswer = problemLongquestionAnswer;
 	}
 
@@ -87,7 +87,7 @@ public class Record {
 		return problemKc;
 	}
 
-	public void setProblemKc(){
+	public void setProblemKc(Integer[] problemKc){
 		this.problemKc = problemKc;
 	}
 }
