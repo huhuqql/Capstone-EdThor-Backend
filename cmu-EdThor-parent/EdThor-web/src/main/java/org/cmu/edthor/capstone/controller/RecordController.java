@@ -25,7 +25,7 @@ public class RecordController {
 	private BKT bkt;
 
 	@RequestMapping(path = "/records", method = RequestMethod.POST)
-	public addRecord(@RequestBody Record r) {
+	public void addRecord(@RequestBody Record r) {
 		if (r.getId() == null) {
 			r.setId(new ObjectId().toString());
 		}
