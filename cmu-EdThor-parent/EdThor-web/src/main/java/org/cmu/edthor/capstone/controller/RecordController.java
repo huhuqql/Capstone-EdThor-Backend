@@ -25,55 +25,14 @@ public class RecordController {
 	private BKT bkt;
 
 	@RequestMapping(path = "/records", method = RequestMethod.POST)
-	public ArrayList<ArrayList<Double>> addRecord(@RequestBody Record r) {
+	public addRecord(@RequestBody Record r) {
 		if (r.getId() == null) {
 			r.setId(new ObjectId().toString());
 		}
 		this.recordRepository.save(r);
-		
-		ArrayList<ArrayList<Double>> finalList = new ArrayList<ArrayList<Double>>();
-		List<Record> tempRecords;
-		Integer[] tempKc = {1,2,3,4,5,6,7};
-		tempRecords = findByStudentId(r.getStudentId());
-		for(int i = 0; i < tempKc.length; i++) {
-			BKT bkt  = new BKT(tempKc[i]);
-			ArrayList<Integer> o = new ArrayList<Integer>();
-			for(int j = 0; j < tempRecords.size();j++) {
-				Record tempR = tempRecords.get(j);
-				if(tempR.getProblemType() == 2 || tempR.getProblemType() == 3) {
-					if(tempR.getProblemKc()[0] == tempKc[i]) {
-						if(tempR.getProblemResult()[0] == true) {
-							o.add(1);
-						}
-						else {
-							o.add(0);
-						}
-					}
-				}
-				else {
-					for(int k = 0; k < tempR.getProblemKc().length;k++) {
-						if(tempR.getProblemKc()[k] == tempKc[i]) {
-							if(tempR.getProblemLongquestionAnswer()[k] == true) {
-								o.add(1);
-							}
-							else {
-								o.add(0);
-							}
-						}	
-					}
-				}
-			}
-			int[] oArray = new int[o.size()];
-			for(int j = 0; j < oArray.length; j++) {
-				oArray[j] = o.get(j);
-			}
-			ArrayList<Double> L = bkt.computePKnown(oArray);
-			finalList.add(L);
-		}
-		return finalList;
 	}
 
-	@RequestMapping(path = "/mastery/", method = RequestMethod.GET)
+	@RequestMapping(path = "/records/mastery/", method = RequestMethod.GET)
 	public ArrayList<ArrayList<Double>> addRecord(@RequestParam Integer studentId) {
 		ArrayList<ArrayList<Double>> finalList = new ArrayList<ArrayList<Double>>();
 		List<Record> tempRecords;
@@ -102,7 +61,7 @@ public class RecordController {
 							}
 							else {
 								o.add(0);
-							}
+							}	
 						}	
 					}
 				}
