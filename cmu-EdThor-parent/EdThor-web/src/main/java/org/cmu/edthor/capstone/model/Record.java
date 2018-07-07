@@ -15,6 +15,7 @@ public class Record {
 	private Integer problemNum;
 	private Integer problemType;
 	private long problemDuration;
+	private long[] problemStepDuration;
 	private Integer[] problemKc;
 	private boolean[] problemResult;
 	private boolean[] problemLongquestionAnswer;
@@ -90,4 +91,13 @@ public class Record {
 	public void setProblemKc(Integer[] problemKc){
 		this.problemKc = problemKc;
 	}
+
+	public long[] getProblemStepDuration(){
+		return problemStepDuration;
+	}
+
+	public void setProblemStepDuration(long[] problemStepDuration){
+		this.problemStepDuration = problemStepDuration;
+	}
+
 }
