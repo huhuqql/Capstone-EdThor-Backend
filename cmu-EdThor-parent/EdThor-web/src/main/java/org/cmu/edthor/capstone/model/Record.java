@@ -19,6 +19,7 @@ public class Record {
 	private Integer[] problemKc;
 	private boolean[] problemResult;
 	private boolean[] problemLongquestionAnswer;
+	private boolean[] problemLongquestionAnswerifAlternate;
 
 	public String getId() {
 		return id;
@@ -98,6 +99,14 @@ public class Record {
 
 	public void setProblemStepDuration(long[] problemStepDuration){
 		this.problemStepDuration = problemStepDuration;
+	}
+
+	public boolean[] getProblemLongquestionAnswerifAlternate(){
+		return problemLongquestionAnswerifAlternate;
+	}
+
+	public void setProblemLongquestionAnswerifAlternate(boolean[] problemLongquestionAnswerifAlternate){
+		this.problemLongquestionAnswerifAlternate = problemLongquestionAnswerifAlternate;
 	}
 
 }
