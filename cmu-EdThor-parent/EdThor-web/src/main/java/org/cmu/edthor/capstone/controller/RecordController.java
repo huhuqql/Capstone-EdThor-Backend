@@ -30,9 +30,9 @@ public class RecordController {
 			r.setId(new ObjectId().toString());
 		}
 		List<Record> tempRecords;
-		tempRecords = findByStudentId(r.getStudentId);
+		tempRecords = findByStudentId(r.getStudentId());
 		for(int i = 0;i < tempRecords.size(); i++){
-			if(tempRecords.get(i).getProblemId == r.getProblemId){
+			if(tempRecords.get(i).getProblemId() == r.getProblemId()){
 				return;
 			}
 		}
