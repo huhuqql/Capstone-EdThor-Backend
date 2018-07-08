@@ -83,6 +83,17 @@ public class RecordController {
 		}
 		return finalList;
 	}
+
+	@RequestMapping(path = "/records/history", method = RequestMethod.GET)
+	public ArrayList<Integer> getRecord(@RequestParam Integer studentId) {
+		List<Record> tempRecords;
+		tempRecords = findByStudentId(studentId);
+		ArrayList<Integer> doneQuestions = new ArrayList<Integer>();
+		for(int i = 0; i < tempRecords.size(); i++){
+			doneQuestions.add(tempRecords.get(i).getProblemId());
+		}
+		return doneQuestions;
+	}
 	
 	@RequestMapping(path = "/records", method = RequestMethod.GET)
 	public List<Record> getAllRecords() {
