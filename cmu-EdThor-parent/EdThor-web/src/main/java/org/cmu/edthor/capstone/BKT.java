@@ -7,38 +7,38 @@ public class BKT {
 
 	private ArrayList<Double> L = new ArrayList<Double>();
 	private double L0;
-	private double G = 0.3;
+	private double G = 0.2;
 	private double S = 0.2;
-	private double T;
+	private double T = 0.1;
 	
 	public BKT(int kc) {
 		if(kc == 1){
-			L0 = 0.2;
-			T = 0.1;
+			L0 = 0.3;
+
 		}
 		else if(kc == 2){
-			L0 = 0.2;
-			T = 0.1;
+			L0 = 0.3;
+
 		}
 		else if(kc == 3){
-			L0 = 0.1;
-			T = 0.06;
+			L0 = 0.15;
+
 		}
 		else if(kc == 4){
-			L0 = 0.1;
-			T = 0.06;
+			L0 = 0.15;
+
 		}
 		else if(kc == 5){
-			L0 = 0.2;
-			T = 0.1;
+			L0 = 0.3;
+
 		}
 		else if(kc == 6){
-			L0 = 0.2;
-			T = 0.1;
+			L0 = 0.3;
+
 		}
 		else if(kc == 7){
-			L0 = 0.2;
-			T = 0.1;
+			L0 = 0.3;
+
 		}
 
 		L.add(L0);
