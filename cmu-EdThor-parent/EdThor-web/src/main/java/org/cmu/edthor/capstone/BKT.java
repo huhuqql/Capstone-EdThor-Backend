@@ -7,8 +7,8 @@ public class BKT {
 
 	private ArrayList<Double> L = new ArrayList<Double>();
 	private double L0;
-	private double G = 0.2;
-	private double S = 0.2;
+	private double G = 0.3;
+	private double S = 0.3;
 	private double T = 0.1;
 	
 	public BKT(int kc) {
